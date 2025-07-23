@@ -39,28 +39,34 @@ export default function Login() {
             <Image 
             source={require('../../assets/images/Social media-cuate.png')} 
             style={styles.illustration}
-            resizeMode='cover'/>
+            resizeMode='contain'/>
         </View>
 
-        {loading?(
-            <ActivityIndicator size={'large'} color={'white'}/>
-            ):(
-            // {/* Login--section */}
+         {/* Login Section */}
             <View style={styles.loginSection}>
                 <TouchableOpacity
-                style={styles.googleButton}
-                onPress={handleGoogleSignIn}
-                activeOpacity={0.8}
-                accessibilityLabel="Sign in with Google"
+                    style={[styles.googleButton, loading && { opacity: 0.7 }]}
+                    onPress={handleGoogleSignIn}
+                    activeOpacity={0.8}
+                    accessibilityLabel="Sign in with Google"
+                    disabled={loading} // Disable button when loading
                 >
-                    <View style={styles.googleIconContainer}>
-                        <Ionicons name='logo-google' size={20} color={COLORS.surface}/>
-                    </View>
-                    <Text style={styles.googleButtonText}>Continue with google</Text>
+                    {loading ? (
+                        <ActivityIndicator size="small" color={COLORS.surface} />
+                    ) : (
+                        <>
+                            <View style={styles.googleIconContainer}>
+                                <Ionicons name='logo-google' size={20} color={COLORS.surface} />
+                            </View>
+                            <Text style={styles.googleButtonText}>Continue with Google</Text>
+                        </>
+                    )}
                 </TouchableOpacity>
-                <Text style={styles.termsText}>By continuing , you agree to our Terms and Privacy Policy</Text>
+                
+                <Text style={styles.termsText}>
+                    By continuing, you agree to our Terms and Privacy Policy
+                </Text>
             </View>
-            )}
     </View>
   )
 }
