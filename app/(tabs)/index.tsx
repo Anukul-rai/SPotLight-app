@@ -5,9 +5,9 @@ import { Link } from "expo-router";
 export default function Index() {
   return (
     <>
-    <StatusBar barStyle={'light-content'}/>
+    {/* <StatusBar barStyle={'dark-content'}/> */}
     <View style={styles.container}>
-      <Link href='/notification'><Text>Visit Notification</Text></Link>
+      <Link href={'/notification'}><Text>Feed screen in tabs</Text></Link>
     </View>
     </>
   );
