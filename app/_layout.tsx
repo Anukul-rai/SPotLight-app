@@ -3,6 +3,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 // import { tokenCache } from '@clerk/clerk-expo/token-cache'
 import * as SecureStore from 'expo-secure-store'
+import InitialLayout from "@/components/InitialLayout";
 
 // Get the publishable key
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
@@ -33,7 +34,7 @@ export default function RootLayout() {
       <ClerkLoaded>
         <SafeAreaProvider>
           <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
-            <Stack screenOptions={{ headerShown: false }} />
+            <InitialLayout/>
           </SafeAreaView>
         </SafeAreaProvider>
       </ClerkLoaded>
